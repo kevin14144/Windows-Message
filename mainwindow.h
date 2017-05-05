@@ -15,16 +15,17 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void TesWindowMsg();
 
 protected:
-    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+    bool nativeEvent(const QByteArray &eventType, void *message, long *result);//Receive Window message event
 
 private slots:
-    void on_pushButton_clicked();
+    void on_btnSetWindowTitle_clicked();
+    void on_btnSendMessage_clicked();
 
 private:
     Ui::MainWindow *ui;
+    void SendWindowMsg();
 };
 
 #endif // MAINWINDOW_H

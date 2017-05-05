@@ -31,6 +31,7 @@ void MainWindow::SendWindowMsg()
     copyData.cbData = data.size();//Data 2 Size(byte)
     copyData.lpData = data.data();//Data 2 (Point)
 
+    //
     if (::IsWindow(hwnd))
     {
         HWND sender = (HWND)effectiveWinId();

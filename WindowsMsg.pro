@@ -23,4 +23,4 @@ FORMS    += mainwindow.ui
 INCLUDEPATH += D:\QT\WindowsMsg\debug\
 
 LIBS += user32.lib\
-#D:\QT\WindowsMsg\debug\MessageDll.lib
+

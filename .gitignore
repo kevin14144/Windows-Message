@@ -1,0 +1,5 @@
+debug/
+Makefile
+Makefile.Debug
+Makefile.Release
+*.user

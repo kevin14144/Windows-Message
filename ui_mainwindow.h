@@ -9,6 +9,7 @@
 #ifndef UI_MAINWINDOW_H
 #define UI_MAINWINDOW_H
 
+#include <QtCore/QLocale>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -20,6 +21,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
@@ -31,12 +33,16 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QGridLayout *gridLayout;
-    QLineEdit *leSendText;
-    QLabel *label;
     QLabel *lbShowMessage;
     QPushButton *btnSetWindowTitle;
     QPushButton *btnSendMessage;
     QLineEdit *leWindowTitle;
+    QLineEdit *leSendText;
+    QLabel *label;
+    QLabel *label_2;
+    QLineEdit *leTargeWindowTitle;
+    QSpinBox *sbMessageType;
+    QLabel *label_3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -52,36 +58,58 @@ public:
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        leSendText = new QLineEdit(centralWidget);
-        leSendText->setObjectName(QStringLiteral("leSendText"));
-
-        gridLayout->addWidget(leSendText, 1, 1, 1, 1);
-
-        label = new QLabel(centralWidget);
-        label->setObjectName(QStringLiteral("label"));
-
-        gridLayout->addWidget(label, 2, 0, 1, 1);
-
         lbShowMessage = new QLabel(centralWidget);
         lbShowMessage->setObjectName(QStringLiteral("lbShowMessage"));
         lbShowMessage->setFrameShape(QFrame::StyledPanel);
 
-        gridLayout->addWidget(lbShowMessage, 2, 1, 1, 1);
+        gridLayout->addWidget(lbShowMessage, 4, 2, 1, 1);
 
         btnSetWindowTitle = new QPushButton(centralWidget);
         btnSetWindowTitle->setObjectName(QStringLiteral("btnSetWindowTitle"));
 
-        gridLayout->addWidget(btnSetWindowTitle, 0, 0, 1, 1);
+        gridLayout->addWidget(btnSetWindowTitle, 1, 0, 1, 1);
 
         btnSendMessage = new QPushButton(centralWidget);
         btnSendMessage->setObjectName(QStringLiteral("btnSendMessage"));
 
-        gridLayout->addWidget(btnSendMessage, 1, 0, 1, 1);
+        gridLayout->addWidget(btnSendMessage, 2, 0, 1, 1);
 
         leWindowTitle = new QLineEdit(centralWidget);
         leWindowTitle->setObjectName(QStringLiteral("leWindowTitle"));
 
-        gridLayout->addWidget(leWindowTitle, 0, 1, 1, 1);
+        gridLayout->addWidget(leWindowTitle, 1, 2, 1, 1);
+
+        leSendText = new QLineEdit(centralWidget);
+        leSendText->setObjectName(QStringLiteral("leSendText"));
+
+        gridLayout->addWidget(leSendText, 2, 2, 1, 1);
+
+        label = new QLabel(centralWidget);
+        label->setObjectName(QStringLiteral("label"));
+
+        gridLayout->addWidget(label, 4, 0, 1, 1);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setLocale(QLocale(QLocale::Chinese, QLocale::Taiwan));
+
+        gridLayout->addWidget(label_2, 0, 0, 1, 1);
+
+        leTargeWindowTitle = new QLineEdit(centralWidget);
+        leTargeWindowTitle->setObjectName(QStringLiteral("leTargeWindowTitle"));
+        leTargeWindowTitle->setLocale(QLocale(QLocale::Chinese, QLocale::Taiwan));
+
+        gridLayout->addWidget(leTargeWindowTitle, 0, 2, 1, 1);
+
+        sbMessageType = new QSpinBox(centralWidget);
+        sbMessageType->setObjectName(QStringLiteral("sbMessageType"));
+
+        gridLayout->addWidget(sbMessageType, 3, 2, 1, 1);
+
+        label_3 = new QLabel(centralWidget);
+        label_3->setObjectName(QStringLiteral("label_3"));
+
+        gridLayout->addWidget(label_3, 3, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -103,10 +131,13 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
-        label->setText(QApplication::translate("MainWindow", "Show message", 0));
         lbShowMessage->setText(QString());
         btnSetWindowTitle->setText(QApplication::translate("MainWindow", "SetWindowTitle", 0));
         btnSendMessage->setText(QApplication::translate("MainWindow", "SendMessage", 0));
+        label->setText(QApplication::translate("MainWindow", "Show message", 0));
+        label_2->setText(QApplication::translate("MainWindow", "Target Window", 0));
+        leTargeWindowTitle->setText(QApplication::translate("MainWindow", "MainWindow", 0));
+        label_3->setText(QApplication::translate("MainWindow", "Message Type", 0));
     } // retranslateUi
 
 };

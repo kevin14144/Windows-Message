@@ -15,17 +15,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="leSendText"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Show message</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
+    <item row="4" column="2">
      <widget class="QLabel" name="lbShowMessage">
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
@@ -35,22 +25,62 @@
       </property>
      </widget>
     </item>
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QPushButton" name="btnSetWindowTitle">
       <property name="text">
        <string>SetWindowTitle</string>
       </property>
      </widget>
     </item>
-    <item row="1" column="0">
+    <item row="2" column="0">
      <widget class="QPushButton" name="btnSendMessage">
       <property name="text">
        <string>SendMessage</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="1">
+    <item row="1" column="2">
      <widget class="QLineEdit" name="leWindowTitle"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="leSendText"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Show message</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="locale">
+       <locale language="Chinese" country="Taiwan"/>
+      </property>
+      <property name="text">
+       <string>Target Window</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLineEdit" name="leTargeWindowTitle">
+      <property name="locale">
+       <locale language="Chinese" country="Taiwan"/>
+      </property>
+      <property name="text">
+       <string>MainWindow</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QSpinBox" name="sbMessageType"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Message Type</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>

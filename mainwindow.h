@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-//#include <Header.h>
+#include "Windows.h"
+#include "QDebug"
 
 namespace Ui {
 class MainWindow;
@@ -17,7 +18,8 @@ public:
     ~MainWindow();
 
 protected:
-    bool nativeEvent(const QByteArray &eventType, void *message, long *result);//Receive Window message event
+    //Receive Window message event
+    bool nativeEvent(const QByteArray &eventType, void *message, long *result);
 
 private slots:
     void on_btnSetWindowTitle_clicked();
@@ -25,7 +27,12 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    //Send window message (WM_COPYDATA)
     void SendWindowMsg();
+
+
+
+
 };
 
 #endif // MAINWINDOW_H

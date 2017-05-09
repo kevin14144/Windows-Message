@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-//const ULONG_PTR Condition_type = 0.0;//To redefine the message.
+//To redefine the message type for user.
 enum Condition_type
 {
     ShowSenderID = 0,
@@ -46,16 +46,15 @@ void MainWindow::SendWindowMsg()
     QByteArray data = sendText.toUtf8();
     COPYDATASTRUCT copyData;
     copyData.dwData = ui->sbMessageType->value();//Data 1, We can use this value to check which condition it will be processing.
-    copyData.cbData = data.size();//Data 2 Size(byte)
+    copyData.cbData = data.size();//Data 2 Size (byte)
     copyData.lpData = data.data();//Data 2 (Point)
 
     if (::IsWindow(hwnd))
     {
-        HWND sender = (HWND)effectiveWinId();
         //QString to Char*
         QByteArray windowTitleTemp = this->windowTitle().toLatin1();
         char* windowTitleTempPoint = windowTitleTemp.data();
-        qDebug()<<sender;
+
         ::SendMessage(hwnd, WM_COPYDATA, reinterpret_cast<WPARAM>(windowTitleTempPoint),(LPARAM)&copyData );
     }
     else
@@ -77,18 +76,18 @@ bool MainWindow::nativeEvent(const QByteArray &eventType, void *message, long *r
     {
     case WM_COPYDATA:
         cds = (COPYDATASTRUCT*)(param->lParam);
-        strMessage = QString::fromUtf8((char*)(cds->lpData),cds->cbData);
-
         switch(cds->dwData)
         {
         case Condition_type::ShowSenderID:
-            ui->lbShowMessage->setText((QString)((char*)param->wParam));
+            strMessage = "Sender Window Title: " + (QString)((char*)param->wParam);
+            ui->lbShowMessage->setText(strMessage);
             break;
         case Condition_type::ShowMessage:
+            strMessage = QString::fromUtf8((char*)(cds->lpData),cds->cbData);
             ui->lbShowMessage->setText(strMessage);
             break;
         default:
-            qDebug() <<"notihing to do.";
+            qDebug() <<"Notihing to do.";
             break;
         }
         return true;

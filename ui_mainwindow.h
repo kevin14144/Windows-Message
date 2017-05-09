@@ -108,6 +108,9 @@ public:
 
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setCursor(QCursor(Qt::WaitCursor));
+        label_3->setContextMenuPolicy(Qt::NoContextMenu);
+        label_3->setToolTipDuration(-4);
 
         gridLayout->addWidget(label_3, 3, 0, 1, 1);
 
@@ -137,7 +140,7 @@ public:
         label->setText(QApplication::translate("MainWindow", "Show message", 0));
         label_2->setText(QApplication::translate("MainWindow", "Target Window", 0));
         leTargeWindowTitle->setText(QApplication::translate("MainWindow", "MainWindow", 0));
-        label_3->setText(QApplication::translate("MainWindow", "Message Type", 0));
+        label_3->setText(QApplication::translate("MainWindow", "<html><head/><body><p>Message Type</p><p>0 : Send Window Title</p><p>1 : Send Message</p></body></html>", 0));
     } // retranslateUi
 
 };

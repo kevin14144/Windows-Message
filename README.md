@@ -1,16 +1,18 @@
-﻿# Windows Message
- 
 
-###程序間通訊
+# Windows Message
+<div class='block'>
+    <button class='btn'>Button</button>
+</div>
+
 透過Window message機制讓視窗、程式之間能夠溝通、傳遞資料。
 
-###測試環境:
+# 測試環境:
 Window 7、QT 5.7
 
-###流程動作
+# 流程動作
 A程式透過Window message發送資料給B程式
 
-###Windows API 方法
+# Windows API 方法
 * 資源
 Include <Windows.h>   
 Library: User32.lib   
@@ -65,5 +67,3 @@ lpDat:
 資料大小(sizeof)   
 lpData:    
 傳遞到接收端的資料指標   
-
-
